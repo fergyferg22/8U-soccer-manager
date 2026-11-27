@@ -3,11 +3,14 @@
 A private, single-device soccer scorebook. No account, paid service, analytics, or third-party runtime dependency is required.
 
 ## Included
-- Game details, scoreboard, period, notes and event log
+- Season selector with separate stats and game history by season
+- Game details, start time, home/away designation, scoreboard, period, notes and event log
 - Editable player roster and jersey numbers
 - Goal and optional assist recording
+- Player positions, shot attempts and shots on goal
+- Shot-on-goal percentage and goal conversion percentage in season stats
 - Start/stop shift timer and manual shift entry
-- Season totals across saved games
+- Season totals across saved games, including attempts, shots on goal, goals and assists
 - JSON backup/restore, CSV export and printable season report
 - Custom app title and team colors
 - Offline cache after first successful load
@@ -35,6 +38,7 @@ Game data is stored locally in IndexedDB in the browser profile on this iPhone. 
 ## Notes / current limitations
 - The app is designed for one manager on one iPhone. It does not synchronize across devices.
 - The shift timer records one active player shift at a time.
-- The goal button increments the home score automatically. The scoreboard's +/- controls can correct either score.
+- The goal button increments your team score automatically. The scoreboard labels identify whether your team is home or away; +/- controls can correct either score.
+- A shot on goal also counts as a shot attempt. Recording a goal automatically counts as a shot attempt and a shot on goal. SOG % is shots on goal divided by attempts; G/SOG % is goals divided by shots on goal. Percentages show a dash when the denominator is zero.
 - Saved game snapshots include event-derived player statistics. The current game's live stats are included in season totals; save the game to preserve it in history.
 - This is a lightweight scorekeeping aid, not an official league record system.

@@ -27,11 +27,14 @@
 <section id="game" class="page active">
   <div class="section-head"><div><div class="eyebrow">CURRENT MATCH</div><h2>Game day</h2></div><span class="pill" id="saveStatus">Saved on device</span></div>
   <div class="card">
+    <div class="season-tools"><label>Season<select id="seasonSelect"></select></label><button class="secondary smallbtn" id="addSeasonBtn">＋ New season</button></div>
     <div class="formgrid">
       <label>Team name<input id="teamName" placeholder="My 8U Team"></label>
       <label>Opponent<input id="opponent" placeholder="Opponent name"></label>
       <label>Date<input id="gameDate" type="date"></label>
+      <label>Game start time<input id="startTime" type="time"></label>
       <label>Field / location<input id="location" placeholder="Field name"></label>
+      <label>Our team is<select id="venue"><option value="Home">Home</option><option value="Away">Away</option></select></label>
     </div>
     <div class="scoreboard">
       <div class="score-side"><div class="team-label" id="homeLabel">HOME</div><div class="score" id="homeScore">0</div><div class="score-controls"><button data-score="home" data-delta="-1">−</button><button data-score="home" data-delta="1">+</button></div></div>
@@ -50,6 +53,12 @@
       <label>Assist <span class="muted">(optional)</span><select id="assister"><option value="">No assist</option></select></label>
     </div>
     <button class="primary full" id="goalBtn">＋ Record goal</button>
+  </div>
+  <div class="card">
+    <h3>Record shots</h3>
+    <label>Player<select id="shotPlayer"><option value="">Choose player</option></select></label>
+    <div class="actions"><button class="secondary" id="shotAttemptBtn">＋ Shot attempt</button><button class="primary" id="shotOnGoalBtn">＋ Shot on goal</button></div>
+    <p class="muted small">A shot on goal also counts as a shot attempt. Recording a goal automatically counts as a shot on goal and an attempt.</p>
   </div>
   <div class="card">
     <h3>Shift tracker</h3>
@@ -73,6 +82,7 @@
     <h3>Add a player</h3><div class="inline-form">
       <label class="number-field">Jersey #<input id="playerNumber" inputmode="numeric" placeholder="##"></label>
       <label class="grow">Player name<input id="playerName" placeholder="Player name"></label>
+      <label>Position<select id="playerPosition"><option>Goalkeeper</option><option>Defender</option><option>Midfielder</option><option>Forward</option><option selected>Utility</option></select></label>
       <button class="primary addbtn" id="addPlayer">Add</button>
     </div>
   </div>
@@ -80,9 +90,10 @@
 </section>
 <section id="stats" class="page">
   <div class="section-head"><div><div class="eyebrow">PLAYER PERFORMANCE</div><h2>Statistics</h2></div><button class="secondary smallbtn" id="exportCsv">Export CSV</button></div>
+  <p class="muted small" id="statsSeasonLabel"></p>
   <div class="stats-summary" id="summaryCards"></div>
-  <div class="card table-card"><div class="table-wrap"><table><thead><tr><th>Player</th><th>G</th><th>A</th><th>Shifts</th><th>Min</th></tr></thead><tbody id="statsRows"></tbody></table></div></div>
-  <p class="muted small">Season totals include all saved games. Current unsaved game stats are included after you save the game.</p>
+  <div class="card table-card"><div class="table-wrap"><table><thead><tr><th>Player</th><th>Att</th><th>SOG</th><th>SOG %</th><th>G</th><th>G/SOG %</th><th>A</th><th>Shifts</th><th>Min</th></tr></thead><tbody id="statsRows"></tbody></table></div></div>
+  <p class="muted small">Att = shot attempts. SOG = shots on goal. SOG % = shots on goal ÷ attempts. G/SOG % = goals ÷ shots on goal. A goal automatically counts as a shot on goal and an attempt. Stats are filtered by the selected season and include the current game.</p>
 </section>
 <section id="history" class="page">
   <div class="section-head"><div><div class="eyebrow">SEASON RECORD</div><h2>Game history</h2></div><button class="secondary smallbtn" id="exportReport">Print report</button></div>

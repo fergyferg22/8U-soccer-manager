@@ -1,6 +1,6 @@
 # Sports Stats Manager
 
-A private, single-device soccer scorebook. No account, paid service, analytics, or third-party runtime dependency is required.
+A private, single-device sports scorebook. No account, paid service, analytics, or third-party runtime dependency is required.
 
 ## Included
 - Game details, scoreboard, period, notes and event log

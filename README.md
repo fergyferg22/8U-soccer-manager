@@ -1,4 +1,4 @@
-# 8U Soccer Manager — free iPhone PWA
+# Sports Stats Manager
 
 A private, single-device soccer scorebook. No account, paid service, analytics, or third-party runtime dependency is required.
 
